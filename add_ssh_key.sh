@@ -5,10 +5,14 @@ id_file="$HOME/.ssh/id_rsa"
 
 # create key as needed
 if [ ! -d "$HOME/.ssh" ]; then
-       mkdir -p "$HOME/.ssh"
+    echo "Creating new .ssh folder"
 
-       [ -z "$1" ] && ssh-keygen -t rsa -b 4096 -C "$1" \
-	       || ssh-keygen -t rsa -b 4096
+    mkdir -p "$HOME/.ssh"
+
+    [ -z "$1" ] && ssh-keygen -t rsa -b 4096 -C "$1" \
+        || ssh-keygen -t rsa -b 4096
+else
+    echo "Found existing .ssh folder"
 fi
 
 # get fingerprint
@@ -19,9 +23,12 @@ match="$(ssh-add -l | grep $fp)"
 
 # if not found
 if [ -z "$match" ]; then
+    echo "Adding key to ssh-agent"
 	# run agent
 	eval "$(ssh-agent -s)"
 	
 	# add key
 	ssh-add $id_file
+else
+    echo "Key: $fp already exists in ssh key list"
 fi
