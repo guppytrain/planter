@@ -57,8 +57,7 @@ if [ -d "$LINUX_DIR" ]; then
 		git clone "https://github.com/guppytrain/linux.git" "$LINUX_DIR"
 	else
 		echo "$LINUX_DIR is a valid repo, fetching into it..."
-		git fetch
-        git status
+        git pull && git checkout -f
 	fi
 else
 	echo "$LINUX_DIR doesn't exist, clone new repo"
