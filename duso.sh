@@ -4,9 +4,9 @@
 DEV_DIR="$HOME/dev"
 
 if [ ! -d "$DEV_DIR" ]; then
-	echo "Creating $DEV_DIR ..."
-
-	mkdir "$DEV_DIR"
+	echo "DEV_DIR does not exist. Exiting..."
+    sleep 5
+    exit 1
 fi
 
 if [ -z "$(which sudo)" ]; then
