@@ -36,7 +36,7 @@ if [ -d "$DOCKER_DIR" ]; then
 		git clone "https://github.com/guppytrain/docker.git" "$DOCKER_DIR"
 	else
 		echo "$DOCKER_DIR is a valid repo, fetching into it..."
-		git pull && git checkout -f
+		git checkout -f && git pull
 	fi
 else
 	echo "$DOCKER_DIR doesn't exist, clone new repo"
@@ -57,7 +57,7 @@ if [ -d "$LINUX_DIR" ]; then
 		git clone "https://github.com/guppytrain/linux.git" "$LINUX_DIR"
 	else
 		echo "$LINUX_DIR is a valid repo, fetching into it..."
-        git pull && git checkout -f
+        git checkout -f && git pull
 	fi
 else
 	echo "$LINUX_DIR doesn't exist, clone new repo"
