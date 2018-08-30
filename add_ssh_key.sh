@@ -32,3 +32,5 @@ if [ -z "$match" ]; then
 else
     echo "Key: $fp already exists in ssh key list"
 fi
+
+ssh -T git@github.com
