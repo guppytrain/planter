@@ -14,7 +14,7 @@ if [ ! -d "$SHARE_DIR" ]; then
 	mkdir "$SHARE_DIR"
 fi
 
-# ensure dev dir
+# ensure dev dir, although redundant, this file maybe executed elsewhere
 DEV_DIR="$HOME/dev"
 
 if [ ! -d "$DEV_DIR" ]; then
@@ -80,5 +80,5 @@ done
 shift $(( OPTIND-1 ))
 
 if [ "${duso}" = true ]; then
-    duso.sh
+    ${LINUX_DIR}/bin/util/duso.sh
 fi
