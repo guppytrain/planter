@@ -69,4 +69,16 @@ else
 
 fi
 
+# strip sudo or not
+while getopts 'd' flag; do
+  case "${flag}" in
+    d) duso='true' 
+        ;;
+  esac
+done
 
+shift $(( OPTIND-1 ))
+
+if [ "${duso}" = true ]; then
+    duso.sh
+fi

@@ -1,15 +1,11 @@
 #!/bin/sh
 
-# ensure dev dir
-DEV_DIR="$HOME/dev"
+s1="su"
+s2="do"
 
-if [ ! -d "$DEV_DIR" ]; then
-	echo "DEV_DIR does not exist. Exiting..."
-    sleep 5
-    exit 1
-fi
+echo "Stripping "${s1}${s2}""
 
-if [ -z "$(which sudo)" ]; then
+if [ -z "$(which "${s1}${s2}")" ]; then
     echo "Stripping 'sudo' from 'linux' repo"
-    $DEV_DIR/linux/bin/util/rp.sh -a sudo $DEV_DIR/linux
+    $DEV_DIR/linux/bin/util/rp.sh -a "${su}${do}" $DEV_DIR/linux
 fi
