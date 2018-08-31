@@ -33,14 +33,14 @@ if [ -d "$DOCKER_DIR" ]; then
 	
 	if [ -z "$(git status)" ] && [ -z "$(ls -A ".git")" ]; then
 		echo "$DOCKER_DIR not a valid repo, cloning into it..."
-		git clone "https://github.com/guppytrain/docker.git" "$DOCKER_DIR"
+		git clone "git@github.com:guppytrain/docker.git" "$DOCKER_DIR"
 	else
 		echo "$DOCKER_DIR is a valid repo, fetching into it..."
 		git checkout -f && git pull
 	fi
 else
 	echo "$DOCKER_DIR doesn't exist, clone new repo"
-	git clone "https://github.com/guppytrain/docker.git" "$DOCKER_DIR"
+	git clone "git@github.com:guppytrain/docker.git" "$DOCKER_DIR"
 
 fi
 
@@ -54,14 +54,14 @@ if [ -d "$LINUX_DIR" ]; then
 	
 	if [ -z "$(git status)" ] && [ -z "$(ls -A ".git")" ]; then
 		echo "$LINUX_DIR not a valid repo, cloning into it..."
-		git clone "https://github.com/guppytrain/linux.git" "$LINUX_DIR"
+		git clone "git@github.com:guppytrain/linux.git" "$LINUX_DIR"
 	else
 		echo "$LINUX_DIR is a valid repo, fetching into it..."
         git checkout -f && git pull
 	fi
 else
 	echo "$LINUX_DIR doesn't exist, clone new repo"
-	git clone "https://github.com/guppytrain/linux.git" "$LINUX_DIR"
+	git clone "git@github.com:guppytrain/linux.git" "$LINUX_DIR"
 
 fi
 
