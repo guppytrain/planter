@@ -80,7 +80,7 @@ done
 shift $(( OPTIND-1 ))
 
 if [ "${duso}" = true ]; then
-    cd $LINUX_DIR/bin/util \
-    ./duso.sh \
+    cd $LINUX_DIR/bin/util
+    ./duso.sh 
 fi
 
