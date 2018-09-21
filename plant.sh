@@ -23,6 +23,29 @@ if [ ! -d "$DEV_DIR" ]; then
 	mkdir "$DEV_DIR"
 fi
 
+# ensure planter repo
+PLANTER_DIR="$DEV_DIR/planter"
+
+if [ -d "$PLANTER_DIR" ]; then
+	echo "Existing ${PLANTER_DIR}..."
+
+	cd "$PLANTER_DIR"
+	
+	if [ -z "$(git status)" ] && [ -z "$(ls -A ".git")" ]; then
+		echo "$PLANTER_DIR not a valid repo, cloning into it..."
+		git clone "git@github.com:guppytrain/planter.git" "$PLANTER_DIR"
+		# git clone "https://github.com/guppytrain/planter.git" "$PLANTER_DIR"
+	else
+		echo "$PLANTER_DIR is a valid repo, fetching into it..."
+		git checkout -f && git pull
+	fi
+else
+	echo "$PLANTER_DIR doesn't exist, clone new repo"
+	git clone "git@github.com:guppytrain/planter.git" "$PLANTER_DIR"
+	# git clone "https://github.com/guppytrain/planter.git" "$PLANTER_DIR"
+
+fi
+
 # ensure docker repo
 DOCKER_DIR="$DEV_DIR/docker"
 
