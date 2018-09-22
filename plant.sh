@@ -14,13 +14,22 @@ if [ ! -d "$SHARE_DIR" ]; then
 	mkdir "$SHARE_DIR"
 fi
 
-# ensure dev dir, although redundant, this file maybe executed elsewhere
+# ensure dev dir, although may be redundant, this file may be executed elsewhere
 DEV_DIR="$HOME/dev"
 
 if [ ! -d "$DEV_DIR" ]; then
 	echo "Creating $DEV_DIR ..."
 
 	mkdir "$DEV_DIR"
+fi
+
+# ensure tmp dir
+TMP_DIR="$HOME/tmp"
+
+if [ ! -d "$TMP_DIR" ]; then
+	echo "Creating $TMP_DIR ..."
+
+	mkdir "$TMP_DIR"
 fi
 
 # ensure planter repo
